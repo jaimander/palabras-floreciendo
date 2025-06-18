@@ -9,7 +9,9 @@
   <button id="enviar">Enviar mensaje</button>
 
   <script>
-    const socket = new WebSocket("ws://localhost:3000");
+   //const socket = new WebSocket("ws://localhost:3000");
+   const socket = new WebSocket("wss://palabras-floreciendo.onrender.com");
+
 
     socket.addEventListener("open", () => {
     console.log("🟢 Conectado al servidor desde Sitio A");

@@ -23,7 +23,9 @@
   </div>
 
   <script>
-    const socket = new WebSocket("ws://localhost:3000");
+    //const socket = new WebSocket("ws://localhost:3000");
+    const socket = new WebSocket("wss://palabras-floreciendo.onrender.com");
+
     const contenedor = document.getElementById("contenedor");
 
     socket.addEventListener("open", () => {
