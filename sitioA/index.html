@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sitio A - Enviar clic</title>
+</head>
+<body>
+  <h1>Sitio A</h1>
+  <button id="enviar">Enviar mensaje</button>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:3000");
+
+    socket.addEventListener("open", () => {
+    console.log("🟢 Conectado al servidor desde Sitio A");
+  });
+
+    document.getElementById("enviar").addEventListener("click", () => {
+      socket.send("nuevo_click");
+      console.log("📤 Mensaje enviado desde Sitio A: nuevo_click");
+    });
+  </script>
+</body>
+</html>

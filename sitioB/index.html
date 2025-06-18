@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sitio B - Recibir clics</title>
+  <style>
+    .raya {
+      width: 100%;
+      height: 2px;
+      background-color: black;
+      margin: 5px 0;
+    }
+    #contenedor {
+  border: 1px dashed red;
+  min-height: 10px;
+}
+  </style>
+</head>
+<body>
+  <h1>Sitio B</h1>
+  <div id="contenedor">
+   
+  </div>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:3000");
+    const contenedor = document.getElementById("contenedor");
+
+    socket.addEventListener("open", () => {
+    console.log("🟢 Conectado al servidor desde Sitio B");
+  });
+
+    socket.addEventListener("message", (event) => {
+        console.log("📥 Mensaje recibido en Sitio B:", event.data);
+        console.log("📎 Comparando con 'nuevo_click':", event.data === "nuevo_click");
+        
+      
+        const raya = document.createElement("div");
+        raya.classList.add("raya");
+        contenedor.appendChild(raya);
+      
+    });
+  </script>
+</body>
+</html>
